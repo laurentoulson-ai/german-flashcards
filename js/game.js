@@ -24,9 +24,31 @@ class GameSession {
     
     async init() {
         await this.loadSessionWords();
+
+        // Debug logging to help track values that affect session size and remaining cards
+        console.log('Game init — chapter:', this.chapterNumber, 'level:', this.level, 'requested cardCount:', this.cardCount, 'mode:', this.sessionMode);
+        console.log('Session words loaded:', this.sessionWords.length);
+
+        // Ensure event listeners (back buttons etc.) are always registered so navigation works even when
+        // there are no words available for the session.
+        this.setupEventListeners();
+
+        // If we have words available, cap the desired cardCount to the actual available words
+        if (this.sessionWords && this.sessionWords.length > 0) {
+            this.cardCount = Math.min(this.cardCount, this.sessionWords.length);
+            // Reflect the chosen count in localStorage so subsequent loads are consistent
+            localStorage.setItem('cardCount', this.cardCount);
+        }
+
+        // If no words were selected for the session, show the empty state and stop further setup.
+        if (!this.sessionWords || this.sessionWords.length === 0) {
+            this.showNoWordsMessage();
+            this.updateProgressDisplay();
+            return;
+        }
+
         this.setupUI();
         this.displayCurrentCard();
-        this.setupEventListeners();
         this.updateProgressDisplay();
     }
     
@@ -41,11 +63,8 @@ class GameSession {
         // Shuffle the words
         this.sessionWords = this.shuffleArray(this.sessionWords);
         
-        // If no words available, show message
-        if (this.sessionWords.length === 0) {
-            this.showNoWordsMessage();
-            return;
-        }
+        // Note: do not call showNoWordsMessage() here any more; init() handles the empty case after
+        // event listeners are set up so navigation works.
     }
     
     setupUI() {

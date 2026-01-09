@@ -97,32 +97,59 @@ class FlashcardData {
     }
     
     getSessionWords(chapterNumber, level, count, mode = 'mix') {
-        const chapter = this.chapters.find(c => c.chapter === chapterNumber);
+        // Find chapter by its numeric chapter property or by index fallback
+        const chapter = this.chapters.find(c => Number(c.chapter) === Number(chapterNumber)) || this.chapters[chapterNumber - 1];
+        // Ensure chapter.words exists
+        const wordsArray = (chapter && Array.isArray(chapter.words)) ? chapter.words : [];
+
+        // Ensure progress for this chapter exists
+        if (!this.progress.chapters[chapterNumber]) {
+            // initialize with full range
+            this.initChapterProgress(Number(chapterNumber), wordsArray.length);
+        }
         const progress = this.progress.chapters[chapterNumber];
-        
+
         if (!chapter || !progress) return [];
-        
-        let wordPool = [];
-        
+
+        // Helper to sanitize an array of indices: convert to numbers, remove duplicates and out-of-range
+        const sanitizeIndices = (arr) => {
+            const seen = new Set();
+            const res = [];
+            for (const v of arr) {
+                const idx = Number(v);
+                if (!Number.isFinite(idx) || idx < 0 || idx >= wordsArray.length) continue;
+                if (seen.has(idx)) continue;
+                seen.add(idx);
+                res.push(idx);
+            }
+            return res;
+        };
+
+        let wordPoolIndices = [];
+
         if (level === 1) {
             if (mode === 'weak') {
-                wordPool = progress.wordsToLearn;
+                wordPoolIndices = sanitizeIndices(progress.wordsToLearn || []);
             } else if (mode === 'consolidate') {
-                wordPool = progress.learnedWords;
+                wordPoolIndices = sanitizeIndices(progress.learnedWords || []);
             } else {
-                wordPool = [...progress.wordsToLearn, ...progress.learnedWords];
+                // mix - combine learned and to-learn but avoid duplicates
+                wordPoolIndices = sanitizeIndices([...(progress.wordsToLearn || []), ...(progress.learnedWords || [])]);
             }
         } else if (level === 2) {
-            wordPool = [...progress.learnedWords, ...progress.strongestWords];
+            wordPoolIndices = sanitizeIndices([...(progress.learnedWords || []), ...(progress.strongestWords || [])]);
         } else if (level === 3) {
-            wordPool = progress.strongestWords;
+            wordPoolIndices = sanitizeIndices(progress.strongestWords || []);
         }
-        
-        const shuffled = this.shuffleArray([...wordPool]);
-        const selectedIndices = shuffled.slice(0, Math.min(count, shuffled.length));
-        
+
+        // Shuffle and select the requested count
+        const shuffled = this.shuffleArray([...wordPoolIndices]);
+        const take = Math.min(Number(count) || 0, shuffled.length);
+        const selectedIndices = shuffled.slice(0, take);
+
+        // Map to word objects, include original index and level
         return selectedIndices.map(index => ({
-            ...chapter.words[index],
+            ...wordsArray[index],
             index: index,
             level: level
         }));
