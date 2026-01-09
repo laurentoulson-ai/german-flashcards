@@ -1,4 +1,3 @@
-cat > js/app.js << 'EOF'
 // Main app initialization for index.html
 document.addEventListener('DOMContentLoaded', async function() {
     console.log('App loaded, initializing...');
@@ -84,7 +83,8 @@ function displayChapters() {
         
         // Check if chapter has content
         const hasContent = chapter.words.length > 0;
-        const imageUrl = hasContent && chapter.image ? chapter.image : 'data/images/placeholder.jpg';
+        // Use background.png as a safe default placeholder image
+        const imageUrl = (hasContent && chapter.image) ? chapter.image : 'data/images/background.png';
         
         chapterCard.innerHTML = `
             <div class="chapter-image" style="background-image: url('${imageUrl}')">
@@ -131,4 +131,3 @@ function updateProgressSummary() {
     document.getElementById('chaptersCount').textContent = 
         `${flashcardData.chapters.filter(c => c.words.length > 0).length}/17`;
 }
-EOF

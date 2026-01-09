@@ -1,4 +1,3 @@
-cat > js/data.js << 'EOF'
 // Data management for German Flashcards
 class FlashcardData {
     constructor() {
@@ -16,10 +15,16 @@ class FlashcardData {
                     chapter: chapterNumber,
                     title: `Chapter ${chapterNumber}`,
                     words: [],
-                    image: "data/images/placeholder.jpg"
+                    image: "data/images/background.png"
                 };
             }
-            return await response.json();
+            const json = await response.json();
+            // Ensure an image property exists. Prefer a chapter-specific image if available,
+            // otherwise fall back to a chapter image file or the generic background.
+            json.image = json.image || `data/images/chapter${chapterNumber}.png`;
+            // If that specific image doesn't exist when hosted, the browser will simply skip it
+            // and the CSS fallback/background will handle appearance.
+            return json;
         } catch (error) {
             console.error(`Error loading chapter ${chapterNumber}:`, error);
             return this.createPlaceholderChapter(chapterNumber);
@@ -31,7 +36,7 @@ class FlashcardData {
             chapter: number,
             title: `Chapter ${number}`,
             words: [],
-            image: "data/images/placeholder.jpg"
+            image: "data/images/background.png"
         };
     }
     
@@ -205,4 +210,3 @@ class FlashcardData {
 }
 
 const flashcardData = new FlashcardData();
-EOF
