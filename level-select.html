@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Level - German Flashcards</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container level-select-container">
+        <header>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Chapters
+            </a>
+            <h1 id="chapterTitle">Select Level</h1>
+            <p class="subtitle" id="chapterSubtitle">Choose your learning mode</p>
+        </header>
+        
+        <div class="chapter-preview">
+            <div class="preview-image" id="chapterImage"></div>
+            <div class="preview-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Words to Learn:</span>
+                    <span class="stat-value" id="wordsToLearn">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Learned Words:</span>
+                    <span class="stat-value" id="learnedWords">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Mastered Words:</span>
+                    <span class="stat-value" id="masteredWords">0</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="levels-grid">
+            <div class="level-card" data-level="1">
+                <div class="level-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Level 1</h3>
+                <p class="level-description">
+                    German → English<br>
+                    Learn new words with clues
+                </p>
+                <div class="level-stats">
+                    <span class="level-stat">
+                        <i class="fas fa-book"></i>
+                        <span id="level1Count">0</span> available
+                    </span>
+                </div>
+                <button class="btn btn-play" onclick="startLevel(1)">
+                    <i class="fas fa-play"></i> Start Session
+                </button>
+            </div>
+            
+            <div class="level-card" data-level="2">
+                <div class="level-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Level 2</h3>
+                <p class="level-description">
+                    English → German<br>
+                    Test your memory
+                </p>
+                <div class="level-stats">
+                    <span class="level-stat">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="level2Count">0</span> available
+                    </span>
+                </div>
+                <button class="btn btn-play" onclick="startLevel(2)">
+                    <i class="fas fa-play"></i> Start Session
+                </button>
+            </div>
+            
+            <div class="level-card" data-level="3">
+                <div class="level-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>Level 3</h3>
+                <p class="level-description">
+                    Sentence Completion<br>
+                    Advanced challenge
+                </p>
+                <div class="level-stats">
+                    <span class="level-stat">
+                        <i class="fas fa-trophy"></i>
+                        <span id="level3Count">0</span> available
+                    </span>
+                </div>
+                <button class="btn btn-play" onclick="startLevel(3)">
+                    <i class="fas fa-play"></i> Start Session
+                </button>
+            </div>
+        </div>
+        
+        <div class="session-settings">
+            <h3>Session Settings</h3>
+            <div class="setting-group">
+                <label for="cardCount">
+                    <i class="fas fa-cards"></i>
+                    Number of cards:
+                </label>
+                <div class="number-input">
+                    <button class="number-btn" onclick="changeCardCount(-5)">-5</button>
+                    <input type="number" id="cardCount" min="1" max="50" value="10">
+                    <button class="number-btn" onclick="changeCardCount(5)">+5</button>
+                </div>
+                <span class="hint">Total words in chapter: <span id="totalWords">0</span></span>
+            </div>
+            
+            <div class="setting-group" id="level1Settings">
+                <label for="sessionMode">
+                    <i class="fas fa-filter"></i>
+                    Practice mode:
+                </label>
+                <select id="sessionMode">
+                    <option value="mix">Random mix</option>
+                    <option value="weak">Weak words only</option>
+                    <option value="consolidate">Learned words only</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/data.js"></script>
+    <script src="js/level-select.js"></script>
+</body>
+</html>

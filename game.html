@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards - German Flashcards</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Game Header -->
+        <div class="game-header">
+            <div class="header-left">
+                <button class="btn-icon" id="backBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="game-info">
+                    <h2 id="gameChapter">Chapter 1</h2>
+                    <div class="level-badge" id="levelBadge">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Level 1</span>
+                    </div>
+                </div>
+            </div>
+            <div class="progress-stats">
+                <div class="stat">
+                    <span class="stat-label">Cards Left</span>
+                    <span class="stat-value" id="cardsRemaining">21</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Correct</span>
+                    <span class="stat-value correct" id="correctCount">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Wrong</span>
+                    <span class="stat-value wrong" id="wrongCount">0</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flashcard -->
+        <div class="flashcard-container">
+            <div class="flashcard" id="flashcard">
+                <div class="card-front">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-label">GERMAN</span>
+                            <span class="hint" id="hintText">Tap to reveal translation</span>
+                        </div>
+                        <div class="word-display">
+                            <h1 id="currentWord">Merkwürdige</h1>
+                        </div>
+                        <div class="clue-section">
+                            <button class="btn-clue" id="clueBtn">
+                                <i class="fas fa-lightbulb"></i>
+                                Show Clue
+                            </button>
+                            <div class="clue-text" id="clueText">
+                                <!-- Clue will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="card-content">
+                        <div class="card-header">
+                            <span class="card-label">ENGLISH</span>
+                            <span class="hint">Did you get it right?</span>
+                        </div>
+                        <div class="word-display">
+                            <h1 id="currentTranslation">strange; peculiar</h1>
+                        </div>
+                        <div class="clue-section">
+                            <div class="clue-text shown">
+                                <i class="fas fa-quote-left"></i>
+                                <span id="backClueText">Er erzählte eine merkwürdige Geschichte.</span>
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-counter">
+                <span id="cardPosition">1</span> / <span id="totalCards">10</span>
+            </div>
+        </div>
+        
+        <!-- Answer Buttons -->
+        <div class="answer-buttons">
+            <button class="btn-wrong" id="wrongBtn">
+                <i class="fas fa-times"></i>
+                <span>Got it wrong</span>
+            </button>
+            <button class="btn-flip" id="flipBtn">
+                <i class="fas fa-sync-alt"></i>
+                <span>Flip Card</span>
+            </button>
+            <button class="btn-correct" id="correctBtn">
+                <i class="fas fa-check"></i>
+                <span>Got it right</span>
+            </button>
+        </div>
+        
+        <!-- Session Complete Modal -->
+        <div class="modal-overlay" id="sessionCompleteModal">
+            <div class="modal">
+                <div class="modal-header">
+                    <h2>Session Complete!</h2>
+                    <p>Great job on your practice session</p>
+                </div>
+                <div class="modal-body">
+                    <div class="results-summary">
+                        <div class="result-item total">
+                            <span class="result-label">Total Cards</span>
+                            <span class="result-value" id="resultTotal">0</span>
+                        </div>
+                        <div class="result-item correct">
+                            <span class="result-label">Correct Answers</span>
+                            <span class="result-value" id="resultCorrect">0</span>
+                        </div>
+                        <div class="result-item wrong">
+                            <span class="result-label">Wrong Answers</span>
+                            <span class="result-value" id="resultWrong">0</span>
+                        </div>
+                        <div class="result-item accuracy">
+                            <span class="result-label">Accuracy</span>
+                            <span class="result-value" id="resultAccuracy">0%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-update">
+                        <h4><i class="fas fa-chart-line"></i> Progress Update</h4>
+                        <p id="progressUpdateText">
+                            <!-- Progress update will appear here -->
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" id="practiceAgainBtn">
+                        <i class="fas fa-redo"></i>
+                        Practice Again
+                    </button>
+                    <button class="btn" id="backToLevelsBtn">
+                        <i class="fas fa-list"></i>
+                        Back to Levels
+                    </button>
+                    <button class="btn" id="backToChaptersBtn">
+                        <i class="fas fa-home"></i>
+                        Back to Chapters
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/data.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
