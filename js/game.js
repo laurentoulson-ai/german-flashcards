@@ -131,20 +131,22 @@ class GameSession {
             document.querySelector('.card-back .card-label').textContent = 'GERMAN';
         } else if (this.level === 3) {
             // Level 3: Sentence with blank on front
-            const clue = currentWord.clue;
-            const germanWord = currentWord.german;
-            
-            // Create sentence with blank (replace the word with _____)
+            const clue = currentWord.clue || '';
+            const germanWord = currentWord.german || '';
+            const englishWord = currentWord.english || '';
+
+            // Create sentence with blank replaced by the English translation to give a clearer cue
             let sentenceWithBlank = clue;
-            // Try to find and replace the German word in the clue
+            // Try to find and replace the German word in the clue (word boundaries)
             const regex = new RegExp(`\\b${germanWord}\\b`, 'i');
             if (regex.test(clue)) {
-                sentenceWithBlank = clue.replace(regex, '__________');
+                // replace the German word with a styled span that contains the English translation
+                sentenceWithBlank = clue.replace(regex, `<span class="filled-blank">${englishWord}</span>`);
             } else {
-                // If word not found in clue, just show the clue
-                sentenceWithBlank = clue;
+                // If the German word is not directly in the clue, append the English translation as a hint
+                sentenceWithBlank = `${clue} <span class="filled-blank">(${englishWord})</span>`;
             }
-            
+
             document.getElementById('currentWord').innerHTML = `
                 <div class="sentence-blank">${sentenceWithBlank}</div>
             `;
