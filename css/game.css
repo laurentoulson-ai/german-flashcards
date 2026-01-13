@@ -5,8 +5,9 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(135deg, #1a2845 0%, #213559 100%);
-    color: white;
+    /* use the same semi-transparent blue so the body background image shows through */
+    background-color: rgba(33, 53, 89, 0.60);
+    color: var(--primary);
 }
 
 /* Game Header */
@@ -15,8 +16,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
+    background: transparent; /* let the container color show */
     border-bottom: 2px solid var(--primary);
 }
 
@@ -27,12 +27,12 @@
 }
 
 .btn-icon {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(228, 171, 73, 0.08);
     border: none;
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    color: white;
+    color: var(--primary); /* make icon yellow */
     font-size: 1.2rem;
     cursor: pointer;
     display: flex;
@@ -42,14 +42,14 @@
 }
 
 .btn-icon:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(228, 171, 73, 0.12);
     transform: scale(1.1);
 }
 
 .game-info h2 {
     margin: 0;
     font-size: 1.5rem;
-    color: white;
+    color: var(--primary);
 }
 
 .level-badge {
@@ -331,7 +331,7 @@
 }
 
 .modal {
-    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    background: rgba(33,53,89,0.6);
     border-radius: 20px;
     width: 90%;
     max-width: 500px;
