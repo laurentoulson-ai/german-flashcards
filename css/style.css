@@ -61,11 +61,7 @@ h1, h2, h3, p, span, li {
 }
 
 .chapters-grid {
-    position: relative; /* for overlay pseudo-element */
-    background-image: url('../data/images/background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    /* simple grid — background handled by body + .container */
     padding: 30px;
     border-radius: 12px;
     display: grid;
@@ -75,19 +71,8 @@ h1, h2, h3, p, span, li {
     color: var(--primary);
 }
 
-.chapters-grid::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(33, 53, 89, 0.55);
-    border-radius: 12px;
-    pointer-events: none;
-}
-
-.chapters-grid > * {
-    position: relative;
-    z-index: 1;
-}
+/* no extra overlay here — children naturally sit inside .container which provides the top-layer */
+.chapters-grid > * { position: relative; z-index: 1; }
 
 .chapter-card {
     background: linear-gradient(135deg, var(--secondary) 0%, #1a2845 100%);
@@ -169,8 +154,9 @@ h1, h2, h3, p, span, li {
 
 .progress-label {
     display: block;
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 1.2rem; /* match subtitle size */
+    color: var(--primary);
+    font-weight: 700;
     margin-bottom: 5px;
 }
 
@@ -442,4 +428,34 @@ h1, h2, h3, p, span, li {
     h1 {
         font-size: 2rem;
     }
+}
+
+/* Styles for chapter preview stats in level-select */
+.chapter-preview .preview-stats {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.chapter-preview .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+.chapter-preview .stat-label {
+    font-size: 1.4rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.chapter-preview .stat-value {
+    font-size: 1.4rem;
+    color: var(--primary);
+    font-weight: 700;
 }
