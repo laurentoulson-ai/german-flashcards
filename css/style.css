@@ -423,7 +423,8 @@ h1, h2, h3, p, span, li {
     }
     
     .container {
-        background-color: #2d3748;
+        /* keep the same semi-transparent overlay in dark mode so the background image remains visible */
+        background-color: rgba(33, 53, 89, 0.75);
     }
     
     .chapter-card {
