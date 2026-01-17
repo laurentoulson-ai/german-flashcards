@@ -1,5 +1,1106 @@
 {
   "chapter": 2,
   "title": "Chapter 2",
-  "words": []
+  "words": [
+    {
+      "german": "Kaum",
+      "english": "hardly; barely; scarcely",
+      "clue": "Kaum war der Morgen angebrochen, wurde Harry geweckt."
+    },
+    {
+      "german": "Aufging",
+      "english": "opened; rose",
+      "clue": "Als die Tür aufging, sah er Tante Petunia."
+    },
+    {
+      "german": "Tauchte",
+      "english": "appeared; emerged",
+      "clue": "Plötzlich tauchte eine Schlange hinter dem Glas auf."
+    },
+    {
+      "german": "Dieselben",
+      "english": "the same (plural)",
+      "clue": "Es waren dieselben Leute wie immer im Zoo."
+    },
+    {
+      "german": "Säuberlich",
+      "english": "neatly; tidily",
+      "clue": "Die Geschenke lagen säuberlich auf dem Tisch."
+    },
+    {
+      "german": "Gepflegten",
+      "english": "well-maintained; groomed",
+      "clue": "Der Ligusterweg hatte gepflegten Rasen vor jedem Haus."
+    },
+    {
+      "german": "Dasselbe",
+      "english": "the same (thing)",
+      "clue": "Harry trug dasselbe wie immer – Dudleys alte Sachen."
+    },
+    {
+      "german": "Schließlich",
+      "english": "finally; after all",
+      "clue": "Schließlich durfte Harry doch mit in den Zoo."
+    },
+    {
+      "german": "Strahlen",
+      "english": "to beam; to shine",
+      "clue": "Die Sonne begann zu strahlen an Dudleys Geburtstag."
+    },
+    {
+      "german": "Unheilvollen",
+      "english": "ominous; sinister",
+      "clue": "Harry hatte einen unheilvollen Traum in der Nacht."
+    },
+    {
+      "german": "Bommelhüte",
+      "english": "bobble hats",
+      "clue": "Im Traum sah Harry seltsame Leute mit Bommelhüte."
+    },
+    {
+      "german": "Ließ",
+      "english": "let; allowed",
+      "clue": "Tante Petunia ließ Harry nicht in Ruhe schlafen."
+    },
+    {
+      "german": "Stimme",
+      "english": "voice",
+      "clue": "Die schrille Stimme seiner Tante weckte ihn."
+    },
+    {
+      "german": "Durchbrach",
+      "english": "broke through",
+      "clue": "Ihre Stimme durchbrach seinen Traum."
+    },
+    {
+      "german": "Schlag",
+      "english": "blow; knock",
+      "clue": "Ein Schlag gegen die Schranktür weckte Harry."
+    },
+    {
+      "german": "Kreischte",
+      "english": "screeched; shrieked",
+      "clue": "Tante Petunia kreischte vor der Tür seines Schranks."
+    },
+    {
+      "german": "Beinen",
+      "english": "legs",
+      "clue": "Eine Spinne krabbelte über seine Beinen."
+    },
+    {
+      "german": "Beeil (dich)",
+      "english": "hurry (up)",
+      "clue": "Beeil dich! Das Frühstück muss fertig sein!"
+    },
+    {
+      "german": "Aufpasst",
+      "english": "pays attention; watches out",
+      "clue": "Pass auf, dass du auf den Speck aufpasst!"
+    },
+    {
+      "german": "Keifte",
+      "english": "nagged; snapped",
+      "clue": "Tante Petunia keifte Harry aus der Küche an."
+    },
+    {
+      "german": "Wimmelte",
+      "english": "swarmed; was teeming",
+      "clue": "Das Reptilienhaus wimmelte von Besuchern."
+    },
+    {
+      "german": "Angezogen",
+      "english": "dressed; attracted",
+      "clue": "Harry war in Dudleys alte Sachen angezogen."
+    },
+    {
+      "german": "Entlang",
+      "english": "along",
+      "clue": "Sie fuhren die Straße entlang zum Zoo."
+    },
+    {
+      "german": "Betrat",
+      "english": "entered",
+      "clue": "Als Dudley das Reptilienhaus betrat, wurde es laut."
+    },
+    {
+      "german": "Gewünscht",
+      "english": "wished",
+      "clue": "Dudley hatte sich ein Rennrad gewünscht."
+    },
+    {
+      "german": "Rennrad",
+      "english": "racing bike",
+      "clue": "Dudley bekam ein neues Rennrad zum Geburtstag."
+    },
+    {
+      "german": "Eigentlich",
+      "english": "actually; really",
+      "clue": "Eigentlich wollte Harry gar nicht mit in den Zoo."
+    },
+    {
+      "german": "Verabscheute",
+      "english": "detested; loathed",
+      "clue": "Dudley verabscheute es, wenn Harry mitkam."
+    },
+    {
+      "german": "Reinzuhauen",
+      "english": "to punch; to hit",
+      "clue": "Dudley liebte es, Harry reinzuhauen."
+    },
+    {
+      "german": "Lieblingsopfer",
+      "english": "favorite victim",
+      "clue": "Harry war Dudleys Lieblingsopfer in der Schule."
+    },
+    {
+      "german": "Fassen",
+      "english": "to grab; to believe",
+      "clue": "Harry konnte sein Glück kaum fassen."
+    },
+    {
+      "german": "Rennen",
+      "english": "to run; race",
+      "clue": "Harry musste oft vor Dudley rennen."
+    },
+    {
+      "german": "Damit",
+      "english": "with it; so that",
+      "clue": "Damit war klar, dass Harry mitkommen musste."
+    },
+    {
+      "german": "Jedenfalls",
+      "english": "anyway; in any case",
+      "clue": "Jedenfalls war Mrs. Figg keine Option mehr."
+    },
+    {
+      "german": "Dürr",
+      "english": "thin; scrawny",
+      "clue": "Harry war klein und dürr für sein Alter."
+    },
+    {
+      "german": "Gewesen",
+      "english": "been",
+      "clue": "Es war der beste Morgen gewesen seit langem."
+    },
+    {
+      "german": "Abgelegten",
+      "english": "discarded; cast-off",
+      "clue": "Harry trug nur abgelegten Sachen von Dudley."
+    },
+    {
+      "german": "Klamotten",
+      "english": "clothes (informal)",
+      "clue": "Dudleys alte Klamotten waren viel zu groß für Harry."
+    },
+    {
+      "german": "Gesicht",
+      "english": "face",
+      "clue": "Harrys Gesicht war dünn und knochig."
+    },
+    {
+      "german": "Knubbelige",
+      "english": "knobbly; bumpy",
+      "clue": "Harry hatte knubbelige Knie unter den weiten Hosen."
+    },
+    {
+      "german": "Knie",
+      "english": "knees",
+      "clue": "Seine Knie schauten unter der kurzen Hose hervor."
+    },
+    {
+      "german": "Einzige",
+      "english": "only; single",
+      "clue": "Das Einzige, was Harry an sich mochte, war seine Narbe."
+    },
+    {
+      "german": "Stirn",
+      "english": "forehead",
+      "clue": "Die blitzförmige Narbe war auf seiner Stirn."
+    },
+    {
+      "german": "Blitz",
+      "english": "lightning",
+      "clue": "Die Narbe hatte die Form eines Blitz."
+    },
+    {
+      "german": "Umdrehte",
+      "english": "turned around",
+      "clue": "Als Harry sich umdrehte, sah er die Schlange."
+    },
+    {
+      "german": "Wucherte",
+      "english": "grew wildly; proliferated",
+      "clue": "Sein schwarzes Haar wucherte in alle Richtungen."
+    },
+    {
+      "german": "Auffällig",
+      "english": "conspicuous; noticeable",
+      "clue": "Seine Narbe war ziemlich auffällig."
+    },
+    {
+      "german": "Ähnlich",
+      "english": "similar",
+      "clue": "Harry sah seinen Eltern ähnlich."
+    },
+    {
+      "german": "Wässrige",
+      "english": "watery",
+      "clue": "Tante Petunia hatte wässrige blaue Augen."
+    },
+    {
+      "german": "Dichtes",
+      "english": "thick; dense",
+      "clue": "Harry hatte dichtes schwarzes Haar."
+    },
+    {
+      "german": "Glatt",
+      "english": "smooth; straight",
+      "clue": "Sein Haar war nie glatt zu bekommen."
+    },
+    {
+      "german": "Perücke",
+      "english": "wig",
+      "clue": "Tante Petunia wollte ihm eine Perücke aufsetzen."
+    },
+    {
+      "german": "Unterdessen",
+      "english": "meanwhile",
+      "clue": "Unterdessen zählte Dudley seine Geschenke."
+    },
+    {
+      "german": "Zog",
+      "english": "pulled; drew",
+      "clue": "Dudley zog eine Schnute wegen der Geschenke."
+    },
+    {
+      "german": "Schnute",
+      "english": "pout",
+      "clue": "Er zog eine Schnute und begann zu jammern."
+    },
+    {
+      "german": "Schlang",
+      "english": "gobbled; devoured",
+      "clue": "Dudley schlang sein Frühstück hinunter."
+    },
+    {
+      "german": "Witterte",
+      "english": "sensed; scented",
+      "clue": "Tante Petunia witterte einen Wutanfall."
+    },
+    {
+      "german": "Gefahr",
+      "english": "danger",
+      "clue": "Sie erkannte die Gefahr eines Wutanfalls."
+    },
+    {
+      "german": "Rasch",
+      "english": "quickly; swiftly",
+      "clue": "Sie versprach rasch noch mehr Geschenke."
+    },
+    {
+      "german": "Schwerstarbeit",
+      "english": "hard labor",
+      "clue": "Für Dudley war das Zählen Schwerstarbeit."
+    },
+    {
+      "german": "Während",
+      "english": "while; during",
+      "clue": "Während Dudley zählte, aß Harry sein Frühstück."
+    },
+    {
+      "german": "Ferngesteuertes",
+      "english": "remote-controlled",
+      "clue": "Dudley bekam ein ferngesteuertes Flugzeug."
+    },
+    {
+      "german": "Armbanduhr",
+      "english": "wristwatch",
+      "clue": "Er bekam auch eine goldene Armbanduhr."
+    },
+    {
+      "german": "Zornigem",
+      "english": "angry",
+      "clue": "Er schaute mit zornigem Blick auf seine Geschenke."
+    },
+    {
+      "german": "Besorgtem",
+      "english": "worried; concerned",
+      "clue": "Tante Petunia sah ihn mit besorgtem Blick an."
+    },
+    {
+      "german": "Blick",
+      "english": "look; glance",
+      "clue": "Sie tauschten einen nervösen Blick aus."
+    },
+    {
+      "german": "Zurückkam",
+      "english": "came back; returned",
+      "clue": "Als Onkel Vernon zurückkam, war Dudley beruhigt."
+    },
+    {
+      "german": "Schreck",
+      "english": "fright; shock",
+      "clue": "Er bekam einen Schreck, als das Glas verschwand."
+    },
+    {
+      "german": "Mund",
+      "english": "mouth",
+      "clue": "Dudleys Mund stand offen vor Staunen."
+    },
+    {
+      "german": "Doch",
+      "english": "but; yet; however",
+      "clue": "Doch dann verschwand plötzlich das Glas."
+    },
+    {
+      "german": "Darauf",
+      "english": "on it; thereupon",
+      "clue": "Darauf hatte Harry keine Antwort."
+    },
+    {
+      "german": "Besessen",
+      "english": "obsessed; possessed",
+      "clue": "Dudley war geradezu besessen von seinen Geschenken."
+    },
+    {
+      "german": "Nun",
+      "english": "now; well",
+      "clue": "Nun, Harry durfte also doch mit in den Zoo."
+    },
+    {
+      "german": "Zornig",
+      "english": "angry; furious",
+      "clue": "Onkel Vernon war zornig auf Harry nach dem Zoo."
+    },
+    {
+      "german": "Unannehmlichkeit",
+      "english": "inconvenience; trouble",
+      "clue": "Harry sollte keine Unannehmlichkeit machen."
+    },
+    {
+      "german": "Leidtun",
+      "english": "to be sorry",
+      "clue": "Es wird dir leidtun, wenn etwas passiert!"
+    },
+    {
+      "german": "Fiel",
+      "english": "fell",
+      "clue": "Dudley fiel ins Schlangenbecken."
+    },
+    {
+      "german": "Leicht",
+      "english": "easy; light",
+      "clue": "Es war nicht leicht, bei den Dursleys zu leben."
+    },
+    {
+      "german": "Angucken",
+      "english": "to look at",
+      "clue": "Dudley wollte die größten Schlangen angucken."
+    },
+    {
+      "german": "Schlug",
+      "english": "hit; struck",
+      "clue": "Dudley schlug gegen das Glas des Terrariums."
+    },
+    {
+      "german": "Widerwärtig",
+      "english": "disgusting; repulsive",
+      "clue": "Dudley benahm sich widerwärtig gegenüber der Schlange."
+    },
+    {
+      "german": "Barsch",
+      "english": "gruff; curt",
+      "clue": "Onkel Vernon sprach barsch mit Harry."
+    },
+    {
+      "german": "Abwechslung",
+      "english": "change; variety",
+      "clue": "Der Zoo war eine schöne Abwechslung für Harry."
+    },
+    {
+      "german": "Schaute",
+      "english": "looked",
+      "clue": "Harry schaute der Schlange in die Augen."
+    },
+    {
+      "german": "Gebissen",
+      "english": "bitten",
+      "clue": "Mrs. Figgs Katze hatte Dudley gebissen."
+    },
+    {
+      "german": "Infrage",
+      "english": "in question; an option",
+      "clue": "Mrs. Figg kam nicht mehr infrage als Aufpasserin."
+    },
+    {
+      "german": "Jammerte",
+      "english": "whined; wailed",
+      "clue": "Dudley jammerte über die Anzahl seiner Geschenke."
+    },
+    {
+      "german": "Markerschütternden",
+      "english": "bloodcurdling; piercing",
+      "clue": "Dudley stieß einen markerschütternden Schrei aus."
+    },
+    {
+      "german": "Läutete",
+      "english": "rang",
+      "clue": "Das Telefon läutete am Morgen."
+    },
+    {
+      "german": "Entsetzt",
+      "english": "horrified; appalled",
+      "clue": "Tante Petunia war entsetzt über das verschwundene Glas."
+    },
+    {
+      "german": "Marschierte",
+      "english": "marched",
+      "clue": "Onkel Vernon marschierte wütend zu Harry."
+    },
+    {
+      "german": "Meist",
+      "english": "mostly; usually",
+      "clue": "Meist musste Harry alle Hausarbeit erledigen."
+    },
+    {
+      "german": "Arme",
+      "english": "arms",
+      "clue": "Dudley hatte dicke Arme wie ein Schwein."
+    },
+    {
+      "german": "Rücken",
+      "english": "back",
+      "clue": "Die Schlange glitt über Dudleys Rücken."
+    },
+    {
+      "german": "Festhielt",
+      "english": "held on to",
+      "clue": "Dudley festhielt sich am Rand des Beckens."
+    },
+    {
+      "german": "Einschlug",
+      "english": "hit; smashed",
+      "clue": "Dudley einschlug auf das Glas mit seinen Fäusten."
+    },
+    {
+      "german": "Beiseitegenommen",
+      "english": "taken aside",
+      "clue": "Onkel Vernon hatte Harry beiseitegenommen und gewarnt."
+    },
+    {
+      "german": "Purpurroten",
+      "english": "crimson; purple-red",
+      "clue": "Onkel Vernons Gesicht lief purpurroten an vor Wut."
+    },
+    {
+      "german": "Irgendwelche",
+      "english": "any; some kind of",
+      "clue": "Keine irgendwelche komischen Sachen heute!"
+    },
+    {
+      "german": "Krummen",
+      "english": "crooked; bent",
+      "clue": "Mach keine krummen Dinger, warnte Onkel Vernon."
+    },
+    {
+      "german": "Dinger",
+      "english": "things (colloquial)",
+      "clue": "Keine komischen Dinger drehen!"
+    },
+    {
+      "german": "Überhaupt",
+      "english": "at all; altogether",
+      "clue": "Harry verstand überhaupt nicht, was passiert war."
+    },
+    {
+      "german": "Ehrlich",
+      "english": "honest; honestly",
+      "clue": "Harry sagte ehrlich, dass er nichts getan hatte."
+    },
+    {
+      "german": "Geschahen",
+      "english": "happened",
+      "clue": "Seltsame Dinge geschahen oft in Harrys Nähe."
+    },
+    {
+      "german": "Zweck",
+      "english": "purpose; point",
+      "clue": "Es hatte keinen Zweck, den Dursleys zu erklären."
+    },
+    {
+      "german": "Dafürkonnte",
+      "english": "could help it",
+      "clue": "Harry wusste nicht, ob er etwas dafürkonnte."
+    },
+    {
+      "german": "Überdruss",
+      "english": "weariness; disgust",
+      "clue": "Die Dursleys hatten bis zum Überdruss gepredigt."
+    },
+    {
+      "german": "Gegriffen",
+      "english": "grabbed; seized",
+      "clue": "Tante Petunia hatte zur Schere gegriffen."
+    },
+    {
+      "german": "Glatze",
+      "english": "bald head",
+      "clue": "Sie wollte ihm fast eine Glatze schneiden."
+    },
+    {
+      "german": "Verdecken",
+      "english": "to cover; to hide",
+      "clue": "Er sollte seine Narbe mit dem Haar verdecken."
+    },
+    {
+      "german": "Dämlich",
+      "english": "stupid; silly",
+      "clue": "Er sah dämlich aus mit dem kurzen Haar."
+    },
+    {
+      "german": "Ergehen",
+      "english": "to fare; to happen to",
+      "clue": "Es wird dir schlecht ergehen, drohte Onkel Vernon."
+    },
+    {
+      "german": "Ohnehin",
+      "english": "anyway; in any case",
+      "clue": "Ohnehin war es zu spät für Erklärungen."
+    },
+    {
+      "german": "Ausgebeulten",
+      "english": "baggy; bulging",
+      "clue": "Harry trug ausgebeulten Sachen von Dudley."
+    },
+    {
+      "german": "Zusammengeklebten",
+      "english": "taped together",
+      "clue": "Seine Brille war mit Klebeband zusammengeklebten."
+    },
+    {
+      "german": "Hänselten",
+      "english": "teased; bullied",
+      "clue": "Die anderen Kinder hänselten Harry oft."
+    },
+    {
+      "german": "Jedoch",
+      "english": "however; yet",
+      "clue": "Jedoch konnte er niemanden davon überzeugen."
+    },
+    {
+      "german": "Wachte",
+      "english": "woke up",
+      "clue": "Am nächsten Tag wachte Harry auf und seine Haare waren zurück."
+    },
+    {
+      "german": "Abgesäbelt",
+      "english": "hacked off; chopped off",
+      "clue": "Tante Petunia hatte sein Haar abgesäbelt."
+    },
+    {
+      "german": "Obwohl",
+      "english": "although",
+      "clue": "Obwohl es abgeschnitten war, wuchs es über Nacht nach."
+    },
+    {
+      "german": "Ekligen",
+      "english": "disgusting; nasty",
+      "clue": "Dudley trug einen ekligen alten Pullover."
+    },
+    {
+      "german": "Zwängen",
+      "english": "to squeeze; to force",
+      "clue": "Sie wollten ihn in den ekligen Pullover zwängen."
+    },
+    {
+      "german": "Bommeln",
+      "english": "bobbles; pompoms",
+      "clue": "Der Pullover hatte orangefarbene Bommeln."
+    },
+    {
+      "german": "Verzweifelter",
+      "english": "more desperate",
+      "clue": "Je verzweifelter sie zerrten, desto kleiner wurde er."
+    },
+    {
+      "german": "Mühte",
+      "english": "struggled; made effort",
+      "clue": "Sie mühte sich, den Pullover über seinen Kopf zu ziehen."
+    },
+    {
+      "german": "Desto",
+      "english": "the (more)... the (more)",
+      "clue": "Je mehr sie zogen, desto kleiner wurde der Pullover."
+    },
+    {
+      "german": "Enger",
+      "english": "tighter; narrower",
+      "clue": "Der Pullover wurde immer enger."
+    },
+    {
+      "german": "Erklärung",
+      "english": "explanation",
+      "clue": "Harry hatte keine Erklärung dafür."
+    },
+    {
+      "german": "Zufrieden",
+      "english": "satisfied; content",
+      "clue": "Tante Petunia war nicht zufrieden mit dem Ergebnis."
+    },
+    {
+      "german": "Erleichterung",
+      "english": "relief",
+      "clue": "Zu seiner Erleichterung wurde er nicht bestraft."
+    },
+    {
+      "german": "Bestrafte",
+      "english": "punished",
+      "clue": "Onkel Vernon bestrafte Harry mit dem Schrank."
+    },
+    {
+      "german": "Schwierigkeiten",
+      "english": "difficulties; trouble",
+      "clue": "Harry bekam immer Schwierigkeiten wegen seltsamer Dinge."
+    },
+    {
+      "german": "Zwar",
+      "english": "indeed; admittedly",
+      "clue": "Zwar wusste Harry nicht wie, aber er war schuld."
+    },
+    {
+      "german": "Ebenso",
+      "english": "equally; likewise",
+      "clue": "Onkel Vernon war ebenso wütend wie Tante Petunia."
+    },
+    {
+      "german": "Verdutzt",
+      "english": "puzzled; baffled",
+      "clue": "Harry war selbst verdutzt über das Geschehene."
+    },
+    {
+      "german": "Kamin",
+      "english": "fireplace; chimney",
+      "clue": "Sie flohen einmal vor Harry auf den Kamin."
+    },
+    {
+      "german": "Saß",
+      "english": "sat",
+      "clue": "Harry saß plötzlich auf dem Schuldach."
+    },
+    {
+      "german": "Bekamen",
+      "english": "received; got",
+      "clue": "Die Dursleys bekamen einen Brief von der Schule."
+    },
+    {
+      "german": "Daraufhin",
+      "english": "thereupon; as a result",
+      "clue": "Daraufhin sperrten sie ihn in den Schrank."
+    },
+    {
+      "german": "Wütenden",
+      "english": "angry; furious",
+      "clue": "Mit wütenden Blicken schaute Onkel Vernon ihn an."
+    },
+    {
+      "german": "Schulleiterin",
+      "english": "headmistress",
+      "clue": "Die Schulleiterin rief bei den Dursleys an."
+    },
+    {
+      "german": "Emporgeklettert",
+      "english": "climbed up",
+      "clue": "Harry war irgendwie auf das Dach emporgeklettert."
+    },
+    {
+      "german": "Verschlossene",
+      "english": "locked",
+      "clue": "Er landete hinter den verschlossene Abfalleimern."
+    },
+    {
+      "german": "Zurief",
+      "english": "called out",
+      "clue": "Dudley zurief seinen Freunden etwas zu."
+    },
+    {
+      "german": "Abfalleimer",
+      "english": "garbage cans",
+      "clue": "Harry tauchte hinter den Abfalleimer der Schulküche auf."
+    },
+    {
+      "german": "Hochgetragen",
+      "english": "carried up",
+      "clue": "Der Wind hatte ihn angeblich hochgetragen."
+    },
+    {
+      "german": "Schiefgehen",
+      "english": "to go wrong",
+      "clue": "Irgendetwas würde garantiert schiefgehen."
+    },
+    {
+      "german": "Bloß",
+      "english": "just; merely",
+      "clue": "Bloß keine komischen Sachen machen!"
+    },
+    {
+      "german": "Riechendem",
+      "english": "smelling",
+      "clue": "Er landete in übel riechendem Müll."
+    },
+    {
+      "german": "Beklagte",
+      "english": "complained",
+      "clue": "Tante Petunia beklagte sich über Mrs. Figg."
+    },
+    {
+      "german": "Stadtrat",
+      "english": "city council",
+      "clue": "Onkel Vernon sprach über den Stadtrat beim Essen."
+    },
+    {
+      "german": "Verrückten",
+      "english": "crazy; mad",
+      "clue": "Sie nannten Harrys Eltern verrückten Leute."
+    },
+    {
+      "german": "Klagte",
+      "english": "complained; lamented",
+      "clue": "Tante Petunia klagte über ihre Nachbarn."
+    },
+    {
+      "german": "Überholte",
+      "english": "overtook; passed",
+      "clue": "Ein Motorrad überholte ihr Auto."
+    },
+    {
+      "german": "Knallte",
+      "english": "slammed; banged",
+      "clue": "Onkel Vernon knallte die Tür hinter sich zu."
+    },
+    {
+      "german": "Beinahe",
+      "english": "almost; nearly",
+      "clue": "Beinahe hätte Dudley einen Wutanfall bekommen."
+    },
+    {
+      "german": "Vordermann",
+      "english": "person in front",
+      "clue": "Sie fuhren auf den Vordermann fast auf."
+    },
+    {
+      "german": "Drehte",
+      "english": "turned",
+      "clue": "Harry drehte sich um und sah die Schlange."
+    },
+    {
+      "german": "Scheibe",
+      "english": "pane; disc",
+      "clue": "Die Scheibe des Terrariums verschwand einfach."
+    },
+    {
+      "german": "Wieherten",
+      "english": "neighed; guffawed",
+      "clue": "Piers und Dudley wieherten vor Lachen."
+    },
+    {
+      "german": "Egal",
+      "english": "no matter; regardless",
+      "clue": "Egal was Harry sagte, sie glaubten ihm nicht."
+    },
+    {
+      "german": "Verheilten",
+      "english": "healed",
+      "clue": "Die Wunden von Dudleys Schlägen verheilten schnell."
+    },
+    {
+      "german": "Drängelten",
+      "english": "pushed; shoved",
+      "clue": "Die Besucher drängelten vor dem Schlangenbecken."
+    },
+    {
+      "german": "Lächeln",
+      "english": "smile; to smile",
+      "clue": "Harry konnte sich ein Lächeln nicht verkneifen."
+    },
+    {
+      "german": "Stiel",
+      "english": "stem; handle",
+      "clue": "Er hielt das Eis am Stiel fest."
+    },
+    {
+      "german": "Kratzte",
+      "english": "scratched",
+      "clue": "Der Pullover kratzte unangenehm."
+    },
+    {
+      "german": "Erstaunlich",
+      "english": "amazing; astonishing",
+      "clue": "Es war erstaunlich, wie die Scheibe verschwand."
+    },
+    {
+      "german": "Umsichtig",
+      "english": "cautious; prudent",
+      "clue": "Harry musste umsichtig sein bei den Dursleys."
+    },
+    {
+      "german": "Anfingen",
+      "english": "began; started",
+      "clue": "Dudley und Piers anfingen, sich zu langweilen."
+    },
+    {
+      "german": "Verfielen",
+      "english": "fell into; succumbed",
+      "clue": "Sie verfielen in Langeweile im Reptilienhaus."
+    },
+    {
+      "german": "Verhauen",
+      "english": "to beat up",
+      "clue": "Dudley wollte Harry verhauen nach dem Zoo."
+    },
+    {
+      "german": "Aßen",
+      "english": "ate",
+      "clue": "Sie aßen im Zoorestaurant zu Mittag."
+    },
+    {
+      "german": "Durfte",
+      "english": "was allowed to",
+      "clue": "Harry durfte den Rest von Dudleys Eisbecher essen."
+    },
+    {
+      "german": "Nachhinein",
+      "english": "in retrospect; afterwards",
+      "clue": "Im Nachhinein war der Zoobesuch ein Fehler."
+    },
+    {
+      "german": "Beleuchtete",
+      "english": "illuminated; lit up",
+      "clue": "Eine Lampe beleuchtete das Schlangenbecken."
+    },
+    {
+      "german": "Arten",
+      "english": "species; types",
+      "clue": "Es gab alle Arten von Echsen und Schlangen."
+    },
+    {
+      "german": "Echsen",
+      "english": "lizards",
+      "clue": "Dudley wollte die größten Echsen sehen."
+    },
+    {
+      "german": "Äste",
+      "english": "branches",
+      "clue": "Im Terrarium lagen künstliche Äste."
+    },
+    {
+      "german": "Riesigen",
+      "english": "huge; giant",
+      "clue": "Die riesigen Schlange lag hinter dem Glas."
+    },
+    {
+      "german": "Zerquetschen",
+      "english": "to crush; to squash",
+      "clue": "Die Schlange könnte ein Auto zerquetschen."
+    },
+    {
+      "german": "Döste",
+      "english": "dozed",
+      "clue": "Die große Schlange döste vor sich hin."
+    },
+    {
+      "german": "Windungen",
+      "english": "coils",
+      "clue": "Die Schlange lag in großen Windungen da."
+    },
+    {
+      "german": "Klopfte",
+      "english": "knocked; tapped",
+      "clue": "Dudley klopfte gegen das Glas."
+    },
+    {
+      "german": "Rührte",
+      "english": "moved; stirred",
+      "clue": "Die Schlange rührte sich nicht."
+    },
+    {
+      "german": "Weiter",
+      "english": "further; on",
+      "clue": "Dudley schlurfte weiter zum nächsten Becken."
+    },
+    {
+      "german": "Schurfte",
+      "english": "shuffled",
+      "clue": "Dudley schurfte gelangweilt weiter."
+    },
+    {
+      "german": "Doofen",
+      "english": "stupid; dumb",
+      "clue": "Dudley fand die doofen Schlangen langweilig."
+    },
+    {
+      "german": "Zumindest",
+      "english": "at least",
+      "clue": "Zumindest war Harry nicht eingesperrt."
+    },
+    {
+      "german": "Perlaugen",
+      "english": "beady eyes",
+      "clue": "Die Schlange hob den Kopf und sah Harry mit Perlaugen an."
+    },
+    {
+      "german": "Allmählich",
+      "english": "gradually",
+      "clue": "Allmählich hob die Schlange den Kopf."
+    },
+    {
+      "german": "Schulter",
+      "english": "shoulder",
+      "clue": "Die Schlange glitt über seine Schulter."
+    },
+    {
+      "german": "Stieß",
+      "english": "pushed; uttered",
+      "clue": "Dudley stieß einen lauten Schrei aus."
+    },
+    {
+      "german": "Eindeutig",
+      "english": "clearly; definitely",
+      "clue": "Die Schlange zwinkerte ihm eindeutig zu."
+    },
+    {
+      "german": "Erschallte",
+      "english": "resounded; rang out",
+      "clue": "Ein Schrei erschallte durch das Reptilienhaus."
+    },
+    {
+      "german": "Ohrenbetäubendes",
+      "english": "deafening",
+      "clue": "Ein ohrenbetäubendes Kreischen ertönte."
+    },
+    {
+      "german": "Schreckgeheule",
+      "english": "screams of terror",
+      "clue": "Das Schreckgeheule hallte durch den Zoo."
+    },
+    {
+      "german": "Schlängelte",
+      "english": "slithered",
+      "clue": "Die Schlange schlängelte sich schnell hinaus."
+    },
+    {
+      "german": "Vorbeiglitt",
+      "english": "glided past",
+      "clue": "Die Schlange vorbeiglitt an den schreienden Besuchern."
+    },
+    {
+      "german": "Obertierpfleger",
+      "english": "head zookeeper",
+      "clue": "Der Obertierpfleger war völlig fassungslos über das verschwundene Glas."
+    },
+    {
+      "german": "überschwänglich",
+      "english": "exuberant; effusive",
+      "clue": "Tante Petunia lobte Dudley überschwänglich für sein neues Outfit."
+    },
+    {
+      "german": "schnatterten",
+      "english": "chattered; gabbled",
+      "clue": "Die Leute schnatterten aufgeregt über die entkommene Schlange."
+    },
+    {
+      "german": "begleiten",
+      "english": "to accompany",
+      "clue": "Harry durfte die Dursleys in den Zoo begleiten."
+    },
+    {
+      "german": "spielerisch",
+      "english": "playfully",
+      "clue": "Die Schlange bewegte sich spielerisch hinter dem Glas."
+    },
+    {
+      "german": "totzuquetschen",
+      "english": "to squeeze to death",
+      "clue": "Dudley hatte Angst, die Schlange könnte ihn totzuquetschen."
+    },
+    {
+      "german": "schlimmsten",
+      "english": "worst",
+      "clue": "Harry befürchtete das Schlimmsten, als Onkel Vernon ihn ansah."
+    },
+    {
+      "german": "endgültig",
+      "english": "finally; definitively",
+      "clue": "Das Glas war endgültig verschwunden."
+    },
+    {
+      "german": "vorknöpfen",
+      "english": "to take someone to task",
+      "clue": "Onkel Vernon wollte sich Harry vorknöpfen nach dem Vorfall im Zoo."
+    },
+    {
+      "german": "wütend",
+      "english": "angry; furious",
+      "clue": "Onkel Vernon war wütend auf Harry wegen der Schlange."
+    },
+    {
+      "german": "schleunigst",
+      "english": "immediately; at once",
+      "clue": "Harry musste schleunigst in seinen Schrank verschwinden."
+    },
+    {
+      "german": "angestrengt",
+      "english": "intently; with effort",
+      "clue": "Harry starrte angestrengt auf die Schlange hinter dem Glas."
+    },
+    {
+      "german": "brennender",
+      "english": "burning",
+      "clue": "Harry spürte einen brennender Schmerz auf seiner Stirn."
+    },
+    {
+      "german": "Schmerz",
+      "english": "pain",
+      "clue": "Ein plötzlicher Schmerz durchfuhr Harrys Narbe."
+    },
+    {
+      "german": "Unbekannten",
+      "english": "strangers; unknown people",
+      "clue": "Unbekannten auf der Straße hatten Harry schon oft gegrüßt."
+    },
+    {
+      "german": "Verwandten",
+      "english": "relatives",
+      "clue": "Die Dursleys waren Harrys einzige lebende Verwandten."
+    },
+    {
+      "german": "Wirklichkeit",
+      "english": "reality",
+      "clue": "Harry fragte sich, ob das alles Wirklichkeit war."
+    },
+    {
+      "german": "schienen",
+      "english": "seemed",
+      "clue": "Die Dursleys schienen Harry für alles verantwortlich zu machen."
+    },
+    {
+      "german": "verneigt",
+      "english": "bowed",
+      "clue": "Die Schlange hatte sich vor Harry verneigt."
+    },
+    {
+      "german": "schubste",
+      "english": "pushed; shoved",
+      "clue": "Dudley schubste Harry zur Seite, um die Schlange zu sehen."
+    },
+    {
+      "german": "glatzköpfiger",
+      "english": "bald-headed",
+      "clue": "Ein glatzköpfiger Mann hatte Harry einmal auf der Straße zugewinkt."
+    },
+    {
+      "german": "weitergegangen",
+      "english": "moved on; walked on",
+      "clue": "Die Besucher im Zoo waren einfach weitergegangen."
+    }
+    ]
 }
