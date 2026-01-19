@@ -9,6 +9,20 @@ Quick overview
 - The homepage shows all chapters and a progress summary (total words, words learned).
 - Practice sessions are available per chapter with three levels (learn → consolidate → strengthen). Answers update progress saved to localStorage.
 
+Main features
+---------------
+- Personalised learning - upload words from each chapter you want to learn
+- Three flashcard levels:
+    - Level 1: Presented with german words, you must correctly guess the translation
+    - Level 2: Taking all words you previously got correct from level 1, you must now guess the german word
+               when presented with the english word
+    - Level 3: Master the vocab - All words previous correct words from level 2 are now put to the test in
+               sentence context.
+- Words automatically level up and down between flashcard levels based on gameplay
+- Adjustable - Set how many cards you want to test in the game, and whether you want to test weak words or 
+               learned words (level 1 only)
+
+
 Running the app
 ---------------
 The app can be run directly from GitHub pages.
