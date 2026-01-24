@@ -46,6 +46,27 @@
     transform: scale(1.1);
 }
 
+.btn-secondary {
+    background-color: var(--secondary);
+    color: white;
+}
+
+/* Slightly lighter grey reset button for Familiarise reset action */
+.btn-reset {
+    background-color: #6b7280; /* slightly less dark grey */
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.18s ease, transform 0.12s ease;
+}
+.btn-reset:hover {
+    background-color: #7f8794;
+    transform: translateY(-2px);
+}
+
 .game-info h2 {
     margin: 0;
     font-size: 1.5rem;
@@ -579,6 +600,10 @@
 
 .level-card[data-level="3"] .level-icon {
     background: linear-gradient(135deg, #9f7aea 0%, #b794f4 100%);
+}
+
+.level-card.familiarise-card .level-icon i {
+    color: #48bb78; /* green */
 }
 
 .level-card h3 {
