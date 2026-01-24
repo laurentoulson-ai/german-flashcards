@@ -112,6 +112,20 @@
     color: #f56565; /* keep red for wrong answers */
 }
 
+/* Make the top header stat numbers highly readable during gameplay */
+.game-container .game-header .stat-value {
+    color: var(--primary) !important; /* force yellow for visibility */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.45);
+}
+
+.game-container .game-header .stat-value.wrong {
+    color: #f56565 !important; /* keep wrong clearly red */
+}
+
+.game-container .game-header .stat-label {
+    color: rgba(255,255,255,0.9) !important; /* slightly brighter labels */
+}
+
 /* Flashcard Container */
 .flashcard-container {
     flex: 1;
