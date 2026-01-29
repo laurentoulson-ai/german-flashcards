@@ -602,8 +602,14 @@
     background: linear-gradient(135deg, #9f7aea 0%, #b794f4 100%);
 }
 
+.level-card.familiarise-card .level-icon {
+    background: linear-gradient(135deg, #48bb78 0%, #2f9a5f 100%);
+    color: white; /* ensure text/icon default is white */
+    border: 1px solid rgba(72,187,120,0.18);
+}
+
 .level-card.familiarise-card .level-icon i {
-    color: #48bb78; /* green */
+    color: white !important;
 }
 
 .level-card h3 {
