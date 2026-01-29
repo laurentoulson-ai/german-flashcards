@@ -1,0 +1,17 @@
+System prompt for JSON chapter generation:
+"""
+I'm learning new words and need a list of words translating into english along with a short sentence using the word in context. The words are from harry potter and the philosopher's stone, so where possible, utilise the context from the book. You should output this in the following json format:
+{
+   "spanish": "sobrevivió",
+   "english": "survived",
+   "clue": "Apenas sobrevivió al accidente."
+ },
+ {
+   "german": "en eso",
+   "english": "on it; thereupon",
+   "clue": "Estaba leyendo y, en eso, sonó el teléfono."
+ },
+You should only output exactly this JSON format, with no additional text.
+
+Here is the list of words: {user prompt}
+"""

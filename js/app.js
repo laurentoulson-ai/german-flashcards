@@ -91,6 +91,7 @@ function displayChapters() {
         // Use background.png as a safe default placeholder image
         const imageUrl = (hasContent && chapter.image) ? chapter.image : 'data/images/background.png';
         
+        // Build inner HTML, include Upload options when no words present
         chapterCard.innerHTML = `
             <div class="chapter-image" style="background-image: url('${imageUrl}')">
                 <div class="chapter-number">${chapterNumber}</div>
@@ -110,9 +111,237 @@ function displayChapters() {
                 </div>
             </div>
         `;
+
+        // If no words, append Upload controls inside the card
+        if (!hasContent) {
+            const uploadControls = document.createElement('div');
+            uploadControls.style.padding = '12px';
+            uploadControls.innerHTML = `
+                <div style="display:flex;gap:8px;flex-direction:column;">
+                    <button class="btn btn-play" data-chapter="${chapterNumber}" onclick="openUploadModal(${chapterNumber}, event)">Upload words</button>
+                    <button class="btn-secondary" data-chapter="${chapterNumber}" onclick="triggerChapterFileUpload(${chapterNumber})">Upload file</button>
+                </div>
+            `;
+            chapterCard.appendChild(uploadControls);
+        }
         
         container.appendChild(chapterCard);
     });
+}
+
+// Open the upload modal for a chapter (only available when chapter has no words)
+function openUploadModal(chapterNumber, e) {
+    e && e.stopPropagation();
+    const modal = document.getElementById('uploadModal');
+    const title = document.getElementById('uploadModalTitle');
+    const notice = document.getElementById('uploadNotice');
+    const pasted = document.getElementById('pastedWords');
+    const downloadBtn = document.getElementById('downloadGeneratedBtn');
+    const proceedBtn = document.getElementById('proceedBtn');
+    const feedback = document.getElementById('uploadFeedback');
+
+    // reset fields
+    pasted.value = '';
+    feedback.style.display = 'none';
+    downloadBtn.style.display = 'none';
+    proceedBtn.style.display = 'none';
+
+    const lang = flashcardData.getAppLang();
+    title.textContent = `Upload words — Chapter ${chapterNumber} (${lang === 'es' ? 'Spanish' : 'German'})`;
+    notice.textContent = 'Paste raw words and use AI to generate a chapter JSON, or upload a preformatted JSON file. This is saved locally on this device only.';
+
+    modal.style.display = 'flex';
+
+    // wire generate button
+    document.getElementById('generateBtn').onclick = async function(ev) {
+        ev && ev.preventDefault();
+        feedback.style.display = 'none';
+        const raw = pasted.value.trim();
+        if (!raw) {
+            feedback.style.display = 'block';
+            feedback.textContent = 'Please paste words to generate.';
+            return;
+        }
+        // build system prompt from notes.txt template (client-side)
+        // notes template stored in /notes.txt — but we will reconstruct a reasonable prompt here
+        const template = `"""
+I'm learning new words and need a list of words translating into english along with a short sentence using the word in context. The words are from harry potter and the philosopher's stone, so where possible, utilise the context from the book. You should output this in the following json format:\n{\n   \"{lang}\": \"sobrevivió\",\n   \"english\": \"survived\",\n   \"clue\": \"Apenas sobrevivió al accidente.\"\n },\n ...\nYou should only output exactly this JSON format, with no additional text.\n\nHere is the list of words: {user_prompt}
+"""`;
+        const lang = flashcardData.getAppLang();
+        const langKey = (lang === 'es') ? 'spanish' : 'german';
+        const systemPrompt = template.replace('{lang}', langKey).replace('{user_prompt}', raw.replace(/"/g, '\\"'));
+
+        // attempt to call AI provider — requires configuration of LLAMA_API_URL and KEY in window
+        feedback.style.display = 'block';
+        feedback.style.color = '#ffdede';
+        feedback.textContent = 'Generating JSON via AI...';
+
+        try {
+            const generated = await callLlamaGenerate(systemPrompt);
+            if (!generated) throw new Error('No response from AI');
+
+            // Attempt to parse AI output as JSON array or object
+            let parsed;
+            try {
+                parsed = JSON.parse(generated);
+            } catch (e) {
+                // AI may return a list without wrapping; try to wrap
+                const wrapped = `[${generated.trim().replace(/(^,|,$)/g, '')}]`;
+                try { parsed = JSON.parse(wrapped); } catch (e2) { parsed = null; }
+            }
+
+            if (!parsed || (!Array.isArray(parsed) && typeof parsed !== 'object')) {
+                feedback.textContent = 'AI response could not be parsed as JSON. Check API settings or download the raw output.';
+                console.warn('AI output:', generated);
+                return;
+            }
+
+            // Normalize into chapter object
+            let chapterObj;
+            if (Array.isArray(parsed)) {
+                chapterObj = { chapter: chapterNumber, title: `Chapter ${chapterNumber}`, words: parsed };
+            } else if (parsed.words && Array.isArray(parsed.words)) {
+                chapterObj = parsed;
+            } else {
+                // If object is a single word or map, try to coerce
+                feedback.textContent = 'Generated JSON did not match expected chapter structure.';
+                return;
+            }
+
+            // Save to localStorage under language-specific key
+            const key = `localChapter_${flashcardData.getAppLang()}_${chapterNumber}`;
+            localStorage.setItem(key, JSON.stringify(chapterObj));
+
+            // show download and proceed options
+            downloadBtn.style.display = 'inline-block';
+            proceedBtn.style.display = 'inline-block';
+            feedback.style.color = '#c8ffd1';
+            feedback.textContent = 'Generated JSON saved locally. Please download for backup — it will be stored only on this device.';
+
+            // wire download
+            downloadBtn.onclick = function() {
+                const blob = new Blob([JSON.stringify(chapterObj, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `chapter${chapterNumber}-${flashcardData.getAppLang()}.json`;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                URL.revokeObjectURL(url);
+            };
+
+            proceedBtn.onclick = function() {
+                // store chapterData for session and go to level select
+                localStorage.setItem('chapterData', JSON.stringify(chapterObj));
+                localStorage.setItem('selectedChapter', chapterNumber);
+                modal.style.display = 'none';
+                window.location.href = 'level-select.html';
+            };
+
+        } catch (err) {
+            console.error('AI generation failed:', err);
+            feedback.style.color = '#ffdede';
+            feedback.textContent = 'AI generation failed. Please check API configuration or try uploading a correctly formatted JSON file.';
+        }
+    };
+
+    // wire close button
+    document.getElementById('closeUploadModal').onclick = function() {
+        modal.style.display = 'none';
+    };
+}
+
+// Trigger file input to upload a preformatted chapter JSON
+function triggerChapterFileUpload(chapterNumber) {
+    const input = document.getElementById('uploadChapterFile');
+    input.dataset.chapter = String(chapterNumber);
+    input.click();
+}
+
+// Handle uploaded chapter JSON file
+document.getElementById('uploadChapterFile').addEventListener('change', function(e) {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    const chapterNumber = Number(e.target.dataset.chapter || 0);
+    reader.onload = function(ev) {
+        try {
+            const parsed = JSON.parse(ev.target.result);
+            const valid = validateChapterJson(parsed, chapterNumber);
+            if (!valid) {
+                alert('Uploaded file is not in the expected chapter JSON format. Please provide a correctly structured file.');
+                return;
+            }
+            // Save locally
+            const key = `localChapter_${flashcardData.getAppLang()}_${chapterNumber}`;
+            localStorage.setItem(key, JSON.stringify(parsed));
+            alert('Chapter file uploaded and saved locally. Remember to download it for backup if you need it elsewhere.');
+            // reload chapters so UI updates
+            flashcardData.loadAllChapters().then(() => { displayChapters(); updateProgressSummary(); });
+        } catch (err) {
+            console.error('Upload parse error', err);
+            alert('Error parsing uploaded file. Make sure it is valid JSON.');
+        }
+    };
+    reader.readAsText(file);
+    // clear input
+    e.target.value = '';
+});
+
+// Basic validation for uploaded/generated chapter JSON
+function validateChapterJson(obj, expectedChapterNumber) {
+    if (!obj) return false;
+    // Accept either a full chapter object with words array, or an array of word objects
+    if (Array.isArray(obj)) {
+        // ensure each entry has at least english and the language key
+        return obj.every(entry => (typeof entry === 'object') && ('english' in entry) && (('german' in entry) || ('spanish' in entry)));
+    }
+    if (typeof obj === 'object') {
+        if (!Array.isArray(obj.words)) return false;
+        // optional chapter number check
+        if (expectedChapterNumber && obj.chapter && Number(obj.chapter) !== Number(expectedChapterNumber)) {
+            // still accept but warn
+            console.warn('Uploaded chapter number differs from target chapter number');
+        }
+        return obj.words.every(entry => (typeof entry === 'object') && ('english' in entry) && (('german' in entry) || ('spanish' in entry)));
+    }
+    return false;
+}
+
+// Attempt to call a configured Llama API endpoint; expects window.LLAMA_API_URL and window.LLAMA_API_KEY to be set by deployer
+async function callLlamaGenerate(systemPrompt) {
+    // prefer explicit global config
+    const url = window.LLAMA_API_URL || null;
+    const key = window.LLAMA_API_KEY || null;
+    if (!url) {
+        // No remote API configured — cannot call Llama from client without a provider. Return null so UI can fallback.
+        console.warn('No LLAMA_API_URL configured. AI generation disabled.');
+        return null;
+    }
+
+    try {
+        const body = {
+            model: window.LLAMA_MODEL || 'llama-3.1-instruct',
+            prompt: systemPrompt,
+            max_tokens: 1200,
+            temperature: 0.2
+        };
+        const headers = { 'Content-Type': 'application/json' };
+        if (key) headers['Authorization'] = `Bearer ${key}`;
+        const resp = await fetch(url, { method: 'POST', headers, body: JSON.stringify(body) });
+        if (!resp.ok) throw new Error(`AI API responded ${resp.status}`);
+        const data = await resp.json();
+        // provider-specific: try to extract text
+        if (data.output) return data.output;
+        if (data.text) return data.text;
+        if (Array.isArray(data.generations) && data.generations[0]) return data.generations[0].text;
+        // fallback to stringify
+        return JSON.stringify(data);
+    } catch (err) {
+        console.error('LLama API call failed', err);
+        return null;
+    }
 }
 
 // Navigate to level selection for a chapter

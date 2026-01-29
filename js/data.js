@@ -18,6 +18,7 @@ class FlashcardData {
 
     async loadChapter(chapterNumber) {
         const lang = this.getAppLang();
+
         // Try a series of likely file locations to support different folder layouts
         const candidates = [];
         if (lang === 'es') {
@@ -47,11 +48,27 @@ class FlashcardData {
                 }
             } catch (err) {
                 // try next candidate
-                // console.debug(`Failed to fetch ${path}:`, err);
             }
         }
 
-        // If none of the candidates returned, fallback to placeholder chapter
+        // If no repo file found, check for locally generated chapter saved in localStorage (from AI or upload)
+        try {
+            const key = `localChapter_${lang}_${chapterNumber}`;
+            const saved = localStorage.getItem(key);
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                // basic validation: must have chapter number and words array
+                if (parsed && Number(parsed.chapter) === Number(chapterNumber) && Array.isArray(parsed.words)) {
+                    // ensure image fallback
+                    parsed.image = parsed.image || `data/images/chapter${chapterNumber}.png`;
+                    return parsed;
+                }
+            }
+        } catch (e) {
+            // ignore and continue to placeholder
+        }
+
+        // If none of the candidates returned and no local chapter, fallback to placeholder chapter
         return this.createPlaceholderChapter(chapterNumber);
     }
 

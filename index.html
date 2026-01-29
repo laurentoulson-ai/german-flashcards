@@ -29,7 +29,8 @@
 </head>
 <body>
     <div class="container">
-        <header>
+        <header style="position: relative;">
+            <button id="changeLangBtn" class="btn-secondary" style="position:absolute; top:12px; right:12px; z-index:50; padding:8px 10px; font-size:0.9rem;">Change language</button>
             <img id="coverImage" src="data/images/cover.jpeg" alt="Cover" class="cover-image">
         </header>
         
@@ -66,7 +67,34 @@
     </div>
     
     <input type="file" id="importFile" accept=".json" style="display: none;">
+    <input type="file" id="uploadChapterFile" accept=".json" style="display: none;">
     
+    <!-- Upload / AI modal (hidden by default) -->
+    <div id="uploadModal" class="modal-overlay" style="display:none;">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 id="uploadModalTitle">Upload words</h2>
+        </div>
+        <div class="modal-body">
+          <div id="uploadNotice" style="margin-bottom:12px;color:#ffe8a3;font-weight:700;"></div>
+
+          <label for="pastedWords">Paste words (one per line or comma separated):</label>
+          <textarea id="pastedWords" style="width:100%;height:140px;padding:10px;margin-top:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.06);color:var(--primary);"></textarea>
+
+          <div style="margin-top:12px; display:flex; gap:10px; align-items:center;">
+            <button class="btn btn-play" id="generateBtn">Generate JSON (AI)</button>
+            <button class="btn-secondary" id="downloadGeneratedBtn" style="display:none;">Download JSON</button>
+            <button class="btn" id="proceedBtn" style="display:none;">Proceed to Chapter</button>
+          </div>
+
+          <div id="uploadFeedback" style="margin-top:12px;color:#ffdede;display:none;"></div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-secondary" id="closeUploadModal">Close</button>
+        </div>
+      </div>
+    </div>
+
     <!-- ensure the app language is available before loading data.js; default to 'de' -->
     <script>
         (function(){
@@ -85,6 +113,11 @@
                     else img.src = 'data/images/cover.jpeg';
                 }
             } catch (e) { console.warn('Failed to set cover image', e); }
+            // wire change language button
+            try {
+                var btn = document.getElementById('changeLangBtn');
+                if (btn) btn.addEventListener('click', function(){ window.location.href = 'language-select.html'; });
+            } catch(e){}
         })();
     </script>
     <script src="js/data.js"></script>
