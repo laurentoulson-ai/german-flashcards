@@ -26,6 +26,13 @@ function initFamiliarise(chapterNumber) {
     }
   }
 
+  // DEBUG: log language and chapter info to help diagnose missing Spanish familiarise pool
+  try {
+    console.log('initFamiliarise: chapterNumber=', chapterNumber, 'appLang=', flashcardData.getAppLang && flashcardData.getAppLang());
+    console.log('initFamiliarise: chapter object=', chapter);
+    console.log('initFamiliarise: existing familiarise progress=', flashcardData.progress && flashcardData.progress.familiarise);
+  } catch (e) { /* ignore logging errors */ }
+
   if (!chapter) {
     document.getElementById('mcqQuestion').textContent = 'No chapter data available.';
     return;
@@ -36,6 +43,21 @@ function initFamiliarise(chapterNumber) {
   // Ensure familiarise pool initialized and load it
   flashcardData.initFamiliariseChapter(chapterNumber, chapter.words.length);
   famPool = flashcardData.getFamiliarisePool(chapterNumber) || [];
+
+  // If pool is empty but chapter has words, re-init (covers cases where progress stored an empty array)
+  if ((Array.isArray(famPool) && famPool.length === 0) && Array.isArray(chapter.words) && chapter.words.length > 0) {
+    console.warn(`Familiarise pool for chapter ${chapterNumber} was empty; reinitializing to full set for language ${flashcardData.getAppLang()}`);
+    if (!flashcardData.progress.familiarise) flashcardData.progress.familiarise = {};
+    flashcardData.progress.familiarise[chapterNumber] = Array.from({length: chapter.words.length}, (_, i) => i);
+    flashcardData.saveProgress();
+    famPool = flashcardData.getFamiliarisePool(chapterNumber) || [];
+  }
+
+  // DEBUG: after initialization
+  try {
+    console.log('initFamiliarise: famPool after init (length)=', famPool.length);
+    console.log('initFamiliarise: progress.familiarise[chapter]=', flashcardData.progress.familiarise && flashcardData.progress.familiarise[chapterNumber]);
+  } catch (e) { /* ignore */ }
 
   // Determine session cap (from level-select control stored as famCardCount)
   const famCardCount = parseInt(localStorage.getItem('famCardCount')) || 10;
@@ -82,6 +104,11 @@ function updateStatsDisplay() {
 function renderNextQuestion(chapterNumber, chapter) {
   // Refresh famPool in case other tabs changed it
   famPool = flashcardData.getFamiliarisePool(chapterNumber) || [];
+
+  // DEBUG: log pool when rendering
+  try {
+    console.log('renderNextQuestion: famPool length=', famPool.length, 'famSessionPool length=', famSessionPool.length, 'sessionPos=', sessionPos);
+  } catch (e) {}
 
   // If session exhausted (safety), go back
   if (!famSessionPool || sessionPos >= famSessionPool.length) {
