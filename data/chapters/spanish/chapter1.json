@@ -1,5 +1,101 @@
 {
   "chapter": 1,
   "title": "Chapter 1",
-  "words": []
+  "words": [
+    {
+      "spanish": "sobrevivió",
+      "english": "survived",
+      "clue": "El bebé sobrevivió aquella noche misteriosa."
+    },
+    {
+      "spanish": "orgulloso",
+      "english": "proud",
+      "clue": "El señor Dursley estaba orgulloso de ser perfectamente normal."
+    },
+    {
+      "spanish": "tonterías",
+      "english": "nonsense",
+      "clue": "Para él, hablar de magia eran tonterías."
+    },
+    {
+      "spanish": "taladro",
+      "english": "drill",
+      "clue": "Vernon trabajaba vendiendo taladros."
+    },
+    {
+      "spanish": "rollizo",
+      "english": "plump/chubby",
+      "clue": "Dudley era un niño rollizo y mimado."
+    },
+    {
+      "spanish": "le resultaba",
+      "english": "it was (to him/her); he/she found it",
+      "clue": "Le resultaba imposible no fijarse en la gente extraña de la calle."
+    },
+    {
+      "spanish": "estirar",
+      "english": "to stretch",
+      "clue": "Se estiró en la cama pensando en el día tan raro."
+    },
+    {
+      "spanish": "valla",
+      "english": "fence",
+      "clue": "El gato estaba sentado sobre la valla, inmóvil."
+    },
+    {
+      "spanish": "temor",
+      "english": "fear",
+      "clue": "Sintió temor al ver tanta gente vestida de forma extraña."
+    },
+    {
+      "spanish": "fingir",
+      "english": "to pretend",
+      "clue": "Intentó fingir que no veía a los desconocidos con capas."
+    },
+    {
+      "spanish": "opuesto",
+      "english": "opposite",
+      "clue": "En el lado opuesto de la calle, un hombre lo saludó con alegría."
+    },
+    {
+      "spanish": "estremecía",
+      "english": "shuddered/trembled",
+      "clue": "Se estremecía cada vez que oía la palabra «Potter»."
+    },
+    {
+      "spanish": "alejados",
+      "english": "far away/distant",
+      "clue": "Prefería vivir alejados de cualquier cosa rara o misteriosa."
+    },
+    {
+      "spanish": "acontecimiento",
+      "english": "event",
+      "clue": "Aquello no era un día normal; era un acontecimiento extraño."
+    },
+    {
+      "spanish": "canturrear",
+      "english": "to hum",
+      "clue": "Canturreó una melodía mientras conducía hacia el trabajo."
+    },
+    {
+      "spanish": "mejilla",
+      "english": "cheek",
+      "clue": "Se le puso roja la mejilla de pura irritación."
+    },
+    {
+      "spanish": "berrinche",
+      "english": "tantrum",
+      "clue": "Dudley armó un berrinche porque quería más regalos."
+    },
+    {
+      "spanish": "arrojar",
+      "english": "to throw",
+      "clue": "Estuvo a punto de arrojar el periódico al ver una noticia extraña."
+    },
+    {
+      "spanish": "alejarse",
+      "english": "to walk away/to move away",
+      "clue": "Vio al desconocido alejarse entre la multitud."
+    }
+  ]
 }
