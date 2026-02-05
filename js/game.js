@@ -18,6 +18,10 @@ class GameSession {
         // Get chapter data
         const chapterData = JSON.parse(localStorage.getItem('chapterData'));
         this.chapterTitle = chapterData?.title || `Chapter ${this.chapterNumber}`;
+
+        // Determine language key for this session (spanish or german)
+        this.langKey = (flashcardData.getAppLang && flashcardData.getAppLang() === 'es') ? 'spanish' : 'german';
+        this.langName = (this.langKey === 'spanish') ? 'SPANISH' : 'GERMAN';
         
         this.init();
     }
@@ -86,6 +90,8 @@ class GameSession {
         const clueBtn = document.getElementById('clueBtn');
         if (this.level === 2 || this.level === 3) {
             clueBtn.style.display = 'none';
+        } else {
+            clueBtn.style.display = '';
         }
     }
     
@@ -118,39 +124,39 @@ class GameSession {
         
         // Set word based on level
         if (this.level === 1) {
-            // Level 1: German word on front
-            document.getElementById('currentWord').textContent = currentWord.german;
+            // Level 1: target language word on front
+            document.getElementById('currentWord').textContent = currentWord[this.langKey];
             document.getElementById('currentTranslation').textContent = currentWord.english;
-            document.querySelector('.card-front .card-label').textContent = 'GERMAN';
+            document.querySelector('.card-front .card-label').textContent = this.langName;
             document.querySelector('.card-back .card-label').textContent = 'ENGLISH';
         } else if (this.level === 2) {
             // Level 2: English word on front
             document.getElementById('currentWord').textContent = currentWord.english;
-            document.getElementById('currentTranslation').textContent = currentWord.german;
+            document.getElementById('currentTranslation').textContent = currentWord[this.langKey];
             document.querySelector('.card-front .card-label').textContent = 'ENGLISH';
-            document.querySelector('.card-back .card-label').textContent = 'GERMAN';
+            document.querySelector('.card-back .card-label').textContent = this.langName;
         } else if (this.level === 3) {
             // Level 3: Sentence with blank on front
             const clue = currentWord.clue || '';
-            const germanWord = currentWord.german || '';
+            const targetWord = currentWord[this.langKey] || '';
             const englishWord = currentWord.english || '';
 
             // Create sentence with blank replaced by the English translation to give a clearer cue
             let sentenceWithBlank = clue;
-            // Try to find and replace the German word in the clue (word boundaries)
-            const regex = new RegExp(`\\b${germanWord}\\b`, 'i');
+            // Try to find and replace the target language word in the clue (word boundaries)
+            const regex = new RegExp(`\\b${escapeRegExp(targetWord)}\\b`, 'i');
             if (regex.test(clue)) {
-                // replace the German word with a styled span that contains the English translation
+                // replace the target word with a styled span that contains the English translation
                 sentenceWithBlank = clue.replace(regex, `<span class="filled-blank">${englishWord}</span>`);
             } else {
-                // If the German word is not directly in the clue, append the English translation as a hint
+                // If the target word is not directly in the clue, append the English translation as a hint
                 sentenceWithBlank = `${clue} <span class="filled-blank">(${englishWord})</span>`;
             }
 
             document.getElementById('currentWord').innerHTML = `
                 <div class="sentence-blank">${sentenceWithBlank}</div>
             `;
-            document.getElementById('currentTranslation').textContent = germanWord;
+            document.getElementById('currentTranslation').textContent = targetWord;
             document.querySelector('.card-front .card-label').textContent = 'COMPLETE THE SENTENCE';
             document.querySelector('.card-back .card-label').textContent = 'CORRECT WORD';
         }
@@ -163,7 +169,7 @@ class GameSession {
         if (this.level === 1) {
             hintText.textContent = 'Tap to reveal translation';
         } else if (this.level === 2) {
-            hintText.textContent = 'Tap to reveal German word';
+            hintText.textContent = `Tap to reveal ${this.langName.toLowerCase()} word`;
         } else {
             hintText.textContent = 'Tap to reveal missing word';
         }
@@ -350,6 +356,11 @@ class GameSession {
         }
         return newArray;
     }
+}
+
+// utility to escape regex special chars
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 // Initialize game when page loads

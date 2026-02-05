@@ -218,6 +218,48 @@ I'm learning new words and need a list of words translating into english along w
             feedback.style.color = '#c8ffd1';
             feedback.textContent = 'Generated JSON saved locally. Please download for backup — it will be stored only on this device.';
 
+            // Populate preview editor so user can inspect/edit before saving
+            const previewContainer = document.getElementById('generatedPreviewContainer');
+            const previewArea = document.getElementById('generatedPreview');
+            const saveBtn = document.getElementById('saveLocallyBtn');
+            const downloadEditedBtn = document.getElementById('downloadEditedBtn');
+            if (previewContainer && previewArea) {
+                previewArea.value = JSON.stringify(chapterObj, null, 2);
+                previewContainer.style.display = 'block';
+                downloadEditedBtn.style.display = 'inline-block';
+            }
+
+            // wire save edited JSON button
+            saveBtn.onclick = function() {
+                try {
+                    const edited = JSON.parse(previewArea.value);
+                    if (!validateChapterJson(edited, chapterNumber)) {
+                        alert('Edited JSON does not match expected chapter structure. Please fix before saving.');
+                        return;
+                    }
+                    localStorage.setItem(key, JSON.stringify(edited));
+                    alert('Edited chapter saved locally.');
+                    // refresh chapters
+                    flashcardData.loadAllChapters().then(() => { displayChapters(); updateProgressSummary(); });
+                } catch (err) {
+                    alert('Edited content is not valid JSON. Please correct it before saving.');
+                }
+            };
+
+            // wire download edited button
+            downloadEditedBtn.onclick = function() {
+                const text = document.getElementById('generatedPreview').value;
+                const blob = new Blob([text], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `chapter${chapterNumber}-${flashcardData.getAppLang()}-edited.json`;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                URL.revokeObjectURL(url);
+            };
+
             // wire download
             downloadBtn.onclick = function() {
                 const blob = new Blob([JSON.stringify(chapterObj, null, 2)], { type: 'application/json' });
@@ -252,10 +294,14 @@ I'm learning new words and need a list of words translating into english along w
     };
 }
 
+let pendingUploadChapter = null;
+
 // Trigger file input to upload a preformatted chapter JSON
 function triggerChapterFileUpload(chapterNumber) {
     const input = document.getElementById('uploadChapterFile');
     input.dataset.chapter = String(chapterNumber);
+    // store as fallback in case dataset is lost
+    pendingUploadChapter = Number(chapterNumber);
     input.click();
 }
 
@@ -264,7 +310,8 @@ document.getElementById('uploadChapterFile').addEventListener('change', function
     const file = e.target.files && e.target.files[0];
     if (!file) return;
     const reader = new FileReader();
-    const chapterNumber = Number(e.target.dataset.chapter || 0);
+    // fallback to pendingUploadChapter if dataset.chapter missing
+    const chapterNumber = Number(e.target.dataset.chapter || pendingUploadChapter || 0);
     reader.onload = function(ev) {
         try {
             const parsed = JSON.parse(ev.target.result);
@@ -310,33 +357,36 @@ function validateChapterJson(obj, expectedChapterNumber) {
 }
 
 // Attempt to call a configured Llama API endpoint; expects window.LLAMA_API_URL and window.LLAMA_API_KEY to be set by deployer
-async function callLlamaGenerate(systemPrompt) {
-    // prefer explicit global config
-    const url = window.LLAMA_API_URL || null;
+async function callLlamaGenerate(payload) {
+    // payload can be a string (systemPrompt) or an object { userWords, chapterNumber, lang }
+    const proxyUrl = window.LLAMA_API_URL || '/api/llama';
     const key = window.LLAMA_API_KEY || null;
-    if (!url) {
-        // No remote API configured — cannot call Llama from client without a provider. Return null so UI can fallback.
+    if (!proxyUrl) {
         console.warn('No LLAMA_API_URL configured. AI generation disabled.');
         return null;
     }
 
     try {
-        const body = {
-            model: window.LLAMA_MODEL || 'llama-3.1-instruct',
-            prompt: systemPrompt,
-            max_tokens: 1200,
-            temperature: 0.2
-        };
+        let bodyToSend;
+        if (typeof payload === 'string') {
+            bodyToSend = { prompt: payload, model: window.LLAMA_MODEL || 'llama-3.1-instruct', max_tokens: 1200, temperature: 0.2 };
+        } else if (typeof payload === 'object') {
+            bodyToSend = { userWords: payload.userWords, chapterNumber: payload.chapterNumber, lang: payload.lang || 'de', model: window.LLAMA_MODEL || 'llama-3.1-instruct', max_tokens: 1200, temperature: payload.temperature || 0.2 };
+        } else {
+            throw new Error('Invalid payload for callLlamaGenerate');
+        }
+
         const headers = { 'Content-Type': 'application/json' };
         if (key) headers['Authorization'] = `Bearer ${key}`;
-        const resp = await fetch(url, { method: 'POST', headers, body: JSON.stringify(body) });
+
+        const resp = await fetch(proxyUrl, { method: 'POST', headers, body: JSON.stringify(bodyToSend) });
         if (!resp.ok) throw new Error(`AI API responded ${resp.status}`);
         const data = await resp.json();
-        // provider-specific: try to extract text
-        if (data.output) return data.output;
+        // expect { success: true, text: '...' } or provider-specific passthrough
         if (data.text) return data.text;
-        if (Array.isArray(data.generations) && data.generations[0]) return data.generations[0].text;
-        // fallback to stringify
+        if (data.output) return data.output;
+        if (data.result) return data.result;
+        // fallback to the whole response
         return JSON.stringify(data);
     } catch (err) {
         console.error('LLama API call failed', err);

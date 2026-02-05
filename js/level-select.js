@@ -51,6 +51,35 @@ async function loadChapterData(chapterNumber) {
     // Store chapter data for game session
     localStorage.setItem('currentChapter', chapterNumber);
     localStorage.setItem('chapterData', JSON.stringify(chapter));
+
+    // Adjust UI text for Spanish language: replace instances of 'German' with 'Spanish' in descriptions/title
+    (function() {
+        const appLang = (flashcardData && flashcardData.getAppLang) ? flashcardData.getAppLang() : (window.APP_LANG || localStorage.getItem('appLanguage'));
+        if (appLang === 'es') {
+            // Update document title if it mentions German
+            try {
+                if (document && document.title) document.title = document.title.replace(/German/gi, 'Spanish');
+            } catch (e) { /* ignore */ }
+
+            // Familiarise card: English → Spanish
+            const famDesc = document.querySelector('.familiarise-card .level-description');
+            if (famDesc) famDesc.innerHTML = 'English → Spanish<br>Learn new words with multiple choice';
+
+            // Level 1: Spanish → English
+            const l1Desc = document.querySelector('.level-card[data-level="1"] .level-description');
+            if (l1Desc) l1Desc.innerHTML = 'Spanish → English<br>Learn new words with clues';
+
+            // Level 2: English → Spanish
+            const l2Desc = document.querySelector('.level-card[data-level="2"] .level-description');
+            if (l2Desc) l2Desc.innerHTML = 'English → Spanish<br>Test your memory';
+
+            // Optionally adjust other UI labels that may include 'German'
+            const headerTitle = document.getElementById('chapterSubtitle');
+            if (headerTitle && /German/i.test(headerTitle.textContent)) {
+                headerTitle.textContent = headerTitle.textContent.replace(/German/gi, 'Spanish');
+            }
+        }
+    })();
 }
 
 function setupEventListeners() {

@@ -98,9 +98,12 @@ function renderNextQuestion(chapterNumber, chapter) {
   const distractorCount = Math.min(3, allIndices.length);
   const distractors = allIndices.slice(0, distractorCount);
 
+  // Determine language key (spanish/german)
+  const langKey = (flashcardData.getAppLang && flashcardData.getAppLang() === 'es') ? 'spanish' : 'german';
+
   // Build options array and shuffle
-  currentOptions = [{ index: currentCorrectIndex, text: chapter.words[currentCorrectIndex].german }];
-  distractors.forEach(d => currentOptions.push({ index: d, text: chapter.words[d].german }));
+  currentOptions = [{ index: currentCorrectIndex, text: chapter.words[currentCorrectIndex][langKey] }];
+  distractors.forEach(d => currentOptions.push({ index: d, text: chapter.words[d][langKey] }));
   shuffleArray(currentOptions);
 
   // Render question and options
